@@ -1,0 +1,8 @@
+rails g scaffold user image
+rails g scaffold topic name description:text
+rails g scaffold idea name image description:text user_id:integer topic_id:integer
+
+rails g devise:install
+rails g devise user
+
+rake db:migrate

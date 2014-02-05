@@ -1,0 +1,32 @@
+<p id="notice"><%= notice %></p>
+
+<div class="post">
+	<p class="meta"><%= link_to "ideas", ideas_path %> > <%= link_to @idea.topic.name, @idea.topic %></p>	
+	<h2 class="title"><%= @idea.name %></h2>	
+	<p class="linkss">created by <%= link_to @idea.user.name, @idea.user %></p>
+	<div class="entry">
+
+		<div class="apple">
+		<% if @idea.idea_items.any? %>
+		  <h3>What you need</h3>
+					 
+			<table>
+			<% @idea.idea_items.each do |item| %>
+			  <tr>
+				<td><%= item.rank %>.</td>
+				<td><%= item.title %></td>
+			  </tr>
+			<% end %>
+			</table>	  
+		<% end %>
+		</div>
+
+	<%= @idea.description %>		
+	</div>
+					
+</div>
+
+<% if (user_signed_in? && current_user == @user) %>		  
+	<%= link_to "Edit", edit_idea_path(@idea) %>  
+<% end %>
+

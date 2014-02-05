@@ -1,0 +1,11 @@
+<div class="post">
+	<h2 class="title"><a href="#">All Topics </a></h2>
+	<p class="meta">Find here all topics</p>
+	<div class="entry">
+	<% @topics.each do |topic| %>	
+		<p> <%= link_to topic.name, topic %></p>			
+	<% end %>
+	</div>
+</div>	
+
+

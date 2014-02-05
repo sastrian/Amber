@@ -1,0 +1,2 @@
+module IdeaItemsHelper
+end

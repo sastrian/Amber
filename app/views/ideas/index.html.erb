@@ -1,0 +1,17 @@
+<h1>All ideas</h1>
+
+<% @ideas.each do |idea| %>      
+	<p><h2><%= idea.name %></h2>
+	<%= truncate(idea.description, :length => 250)  %>...<%= link_to 'Read more', idea %></p>
+	</p>
+	<hr>
+<% end %>
+
+<%= will_paginate %>
+
+<br>
+
+<% if user_signed_in? %>		  
+  <%= link_to 'Share new Idea', new_idea_path %>
+<% end %>
+

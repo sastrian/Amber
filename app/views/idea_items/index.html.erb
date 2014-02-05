@@ -1,0 +1,31 @@
+<h1>Listing idea_items</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Rank</th>
+      <th>Idea</th>
+      <th>Title</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @idea_items.each do |idea_item| %>
+      <tr>
+        <td><%= idea_item.rank %></td>
+        <td><%= idea_item.idea %></td>
+        <td><%= idea_item.title %></td>
+        <td><%= link_to 'Show', idea_item %></td>
+        <td><%= link_to 'Edit', edit_idea_item_path(idea_item) %></td>
+        <td><%= link_to 'Destroy', idea_item, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Idea item', new_idea_item_path %>
