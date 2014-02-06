@@ -1,0 +1,16 @@
+<h1>All projects</h1>
+
+<% @projects.each do |project| %>      
+	<p><h2><%= project.title %></h2>
+	<%= truncate(project.description, :length => 250)  %>...<%= link_to 'Read more', project %></p>
+	</p>
+	<hr>
+<% end %>
+
+<%= will_paginate %>
+
+<br>
+
+<% if user_signed_in? %>		  
+  <%= link_to 'Share new project', new_project_path %>
+<% end %>

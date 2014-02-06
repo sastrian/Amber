@@ -29,11 +29,38 @@ namespace :db do
       description = Faker::Lorem.sentences(rand(10..20)).to_sentence()
 	  name = Faker::Company.name()
       idea = Idea.create!(name: name, description: description, topic: topics.sample(1).first, user: users.sample(1).first)
+	  
+	  users.each do |user|
+		idea.rate(rand(1..5), user, "sustainability")
+		idea.rate(rand(1..5), user, "price")
+		idea.rate(rand(1..5), user, "easy")
+	  end
+	  
 	  (rand(3..10)).times do |n|
-	  name = Faker::Company.bs
+	    name = Faker::Company.bs
 		IdeaItem.create!(title: name, rank: n, idea: idea)
-		end
+	  end
     end
 	    
+	ideas = Idea.all
+	10.times do
+	 description = Faker::Lorem.sentences(rand(100..200)).to_sentence()
+	  title = Faker::Company.name()
+      project = Project.create!(title: title, description: description, topic: topics.sample(1).first, user: users.sample(1).first)
+	  
+	  users.each do |user|		
+		project.rate(rand(1..5), user, "sustainability")
+		project.rate(rand(1..5), user, "price")
+		project.rate(rand(1..5), user, "easy")
+	  end
+	  
+	  (rand(3..10)).times do |n|
+	    title = Faker::Company.bs
+		ProjectTask.create!(title: title, prio: n, project: project)
+	  end
+	  (rand(0..5)).times do |n|
+	    IdeasInProject.create!(project: project, idea: ideas.sample(1).first)
+	  end
+	end
   end
 end

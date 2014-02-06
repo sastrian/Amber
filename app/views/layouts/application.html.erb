@@ -18,7 +18,7 @@
 	<div id="menu">
 		<ul>			
 			<li class="<%= "current_page_item" if params[:controller] == "ideas" || params[:controller] == "topics" %>"><%= link_to "ideas", ideas_path %></li>			
-			<li class="<%= "current_page_item" if params[:controller] == "projects" %>"><%= link_to "projects", topics_path %></li>
+			<li class="<%= "current_page_item" if params[:controller] == "projects" %>"><%= link_to "projects", projects_path %></li>
 			<li class="<%= "current_page_item" if params[:controller] == "blog" %>"><%= link_to "blog", topics_path %></li>
 			<li class="<%= "current_page_item" if params[:controller] == "about" %>"><%= link_to "about us", topics_path %></li>			
 		</ul>

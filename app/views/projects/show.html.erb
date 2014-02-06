@@ -1,0 +1,45 @@
+<p id="notice"><%= notice %></p>
+
+<div class="post">
+		<div class="appler">
+		<% if @project.ideas.any? %>
+		  <h3>What we plan to do</h3>					 		
+			<% @project.ideas.each do |idea| %>
+			  <%= link_to idea.name, idea %></br>
+			<% end %>			
+		<% end %>
+		</div>
+	<p class="meta"><%= link_to "projects", projects_path %> > <%= link_to @project.topic.name, @project.topic %></p>		
+	<h2 class="title"><%= @project.title %></h2>	
+	<p class="linkss">created by <%= link_to @project.user.name, @project.user %></p>
+	<div class="entry">
+
+		<div class="apple">
+		<% if @project.project_tasks.any? %>
+		  <h3>Project Plan</h3>
+					 
+			<table>
+			<% @project.project_tasks.each do |item| %>
+			  <tr>
+				<td><%= item.prio %>.</td>
+				<td><%= item.title %></td>
+			  </tr>
+			<% end %>
+			</table>	  
+		<% end %>
+		</div>
+
+	sustainability : <%= rating_for @project, "sustainability" %>
+	price : <%= rating_for @project, "price" %>
+	easy : <%= rating_for @project, "easy" %>
+		
+	<%= @project.description %>		
+	</div>
+					
+</div>
+
+<% if (user_signed_in? && current_user == @user) %>		  
+	<%= link_to "Edit", edit_project_path(@project) %>  
+<% end %>
+
+

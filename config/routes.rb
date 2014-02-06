@@ -1,4 +1,11 @@
 Amber::Application.routes.draw do  
+  post '/rate' => 'rater#create', :as => 'rate'
+  resources :ideas_in_projects
+
+  resources :project_tasks
+
+  resources :projects
+
   get "static_pages/home"
   get "static_pages/about"
   resources :idea_items

@@ -10,6 +10,16 @@
 	<% end %>
 <% end %>
 
+<% if @user.ideas.any? %>
+<p><h3>All projects of <%= @user.name %></h3>
+	<% @user.projects.each do |project| %>      
+		<p><h2><%= project.title %></h2>
+		<%= truncate(project.description, :length => 250)  %>...<%= link_to 'Read more', project %></p>
+		</p>
+		<hr>
+	<% end %>
+<% end %>
+
 <% if (user_signed_in? && current_user == @user) %>		  
 	<%= link_to 'Edit', edit_user_path(@user) %> |
 <% end %>

@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  state: MyString
+  prio: 1
+  size: 1
+  project_id: 
+
+two:
+  title: MyString
+  state: MyString
+  prio: 1
+  size: 1
+  project_id: 

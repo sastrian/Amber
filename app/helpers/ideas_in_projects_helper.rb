@@ -1,0 +1,2 @@
+module IdeasInProjectsHelper
+end

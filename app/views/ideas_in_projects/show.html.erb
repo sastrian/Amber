@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Project:</strong>
+  <%= @ideas_in_project.project %>
+</p>
+
+<p>
+  <strong>Idea:</strong>
+  <%= @ideas_in_project.idea %>
+</p>
+
+<%= link_to 'Edit', edit_ideas_in_project_path(@ideas_in_project) %> |
+<%= link_to 'Back', ideas_in_projects_path %>

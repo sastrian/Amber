@@ -1,13 +1,25 @@
-<p id="notice"><%= notice %></p>
+<p class="meta"><%= link_to "topics", topics_path %> > <%= link_to @topic.name, @topic %></p>	
 
 <h2 class="title"><%= @topic.name %></h2>
 <p class="meta"><%= @topic.description %></p>	
 
+<table>
+<tr>
+<td>
 <% if @topic.ideas.any? %>
-
 	<% @topic.ideas.each do |idea| %>      
 		<p><h3><%= link_to idea.name, idea %></h3></p>				
 	<% end %>
 <% end %>
+</td>
+<td>
+<% if @topic.projects.any? %>
+	<% @topic.projects.each do |project| %>      
+		<p><h3><%= link_to project.title, project %></h3></p>				
+	<% end %>
+<% end %>
+</td>
+</tr>
+</table>
 
 

@@ -2,6 +2,14 @@
 
 <div class="post">
 	<p class="meta"><%= link_to "ideas", ideas_path %> > <%= link_to @idea.topic.name, @idea.topic %></p>	
+	<div class="appler">
+		<% if @idea.projects.any? %>
+		  <h3>Realised in Projects</h3>					 		
+			<% @idea.projects.each do |project| %>
+			  <%= link_to project.title, project %></br>
+			<% end %>			
+		<% end %>
+		</div>
 	<h2 class="title"><%= @idea.name %></h2>	
 	<p class="linkss">created by <%= link_to @idea.user.name, @idea.user %></p>
 	<div class="entry">
@@ -21,6 +29,10 @@
 		<% end %>
 		</div>
 
+		sustainability : <%= rating_for @idea, "sustainability" %>
+		price : <%= rating_for @idea, "price" %>
+		easy : <%= rating_for @idea, "easy" %>
+		
 	<%= @idea.description %>		
 	</div>
 					
